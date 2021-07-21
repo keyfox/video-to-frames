@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Video To Frames</title>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.10.1/dist/ffmpeg.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"
+      integrity="sha512-uVSVjE7zYsGz4ag0HEzfugJ78oHCI1KhdkivjQro8ABL/PRiEO4ROwvrolYAcZnky0Fl/baWKYilQfWvESliRA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./code.js"></script>
+    <style type="text/css">
+      #logsDisplay {
+        background: black;
+        color: white;
+        font-family: monospace;
+        font-size: 16px;
+        height: calc(16px * 41);
+        white-space: pre-wrap;
+      }
+      .info {
+        color: gray;
+      }
+      .keyfox {
+        color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Video To Frames</h1>
+    <p>* comes with absolutely no warranty *</p>
+    <form>
+      <fieldset id="console">
+        <table>
+          <tr>
+            <th>Video File</th>
+            <td>
+              <input type="file" id="sourceFileInput" />
+            </td>
+          </tr>
+          <tr>
+            <th>FPS</th>
+            <td>
+              <input
+                type="number"
+                id="fpsInput"
+                min="0"
+                step="0.1"
+                max="60"
+                value="15"
+              />
+              * Set 0 to use video's FPS
+            </td>
+          </tr>
+        </table>
+        <button type="button" id="doItButton">Do it</button>
+      </fieldset>
+    </form>
+    <hr />
+    <div id="logsDisplay"></div>
+    <progress id="progressDisplay" max="1" value="0">70%</progress>
+    <h2>Acknowledgement</h2>
+    <ul>
+      <li><a href="https://ffmpegwasm.github.io/">FFMPEG.WASM</a></li>
+      <li><a href="https://stuk.github.io/jszip/">JSZip</a></li>
+    </ul>
+  </body>
+</html>
